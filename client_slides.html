@@ -123,18 +123,18 @@
   /* ─── Screenshot ─── */
   .screenshot-wrap {
     position: relative;
-    flex-shrink: 0;
+    max-width: 100%;
   }
   .screenshot-wrap img {
-    max-width: 100%;
-    max-height: 100%;
+    display: block;
+    width: 100%;
+    height: auto;
     border-radius: 16px;
     box-shadow:
       0 4px 6px rgba(0,0,0,0.3),
       0 20px 60px rgba(0,0,0,0.5),
       0 0 80px rgba(124, 58, 237, 0.1);
     border: 1px solid rgba(255,255,255,0.06);
-    object-fit: contain;
   }
 
   /* ─── Layout helpers ─── */
@@ -146,9 +146,8 @@
     max-width: 1720px;
     z-index: 1;
   }
-  .split .content { flex: 0 0 520px; max-width: 520px; }
-  .split .visual  { flex: 1 1 0; min-width: 0; overflow: hidden; display: flex; justify-content: flex-end; align-items: center; }
-  .split .visual img { max-height: 75vh; max-width: 100%; width: auto; height: auto; object-fit: contain; }
+  .split .content { flex: 0 0 520px; }
+  .split .visual  { flex: 1 1 0; min-width: 0; display: flex; justify-content: flex-end; align-items: center; }
 
   .center-col {
     display: flex;
