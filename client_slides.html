@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=1920, height=1080">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BEPRO_duction — Презентация</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
@@ -426,6 +426,66 @@
     .split { gap: 32px; }
     .headline { font-size: 36px; }
     .bullets li { font-size: 20px; }
+  }
+
+  /* ─── Tablet ─── */
+  @media (max-width: 768px) {
+    .slide { padding: 32px 24px; height: auto; min-height: 100vh; scroll-snap-align: start; }
+    .split { flex-direction: column; gap: 32px; }
+    .split .content { flex: none; max-width: 100%; }
+    .split .visual { flex: none; width: 100%; justify-content: center; }
+    .headline { font-size: 32px; margin-bottom: 20px; }
+    .subheadline { font-size: 20px; }
+    .bullets { gap: 14px; }
+    .bullets li { font-size: 17px; gap: 12px; }
+    .bullets li .icon { width: 38px; height: 38px; border-radius: 10px; }
+    .bullets li .icon svg { width: 18px; height: 18px; }
+    .title-logo { font-size: 48px; letter-spacing: -2px; }
+    .title-subtitle { font-size: 20px; margin-bottom: 32px; }
+    .title-tags { gap: 16px; font-size: 16px; flex-wrap: wrap; justify-content: center; }
+    .pain-grid { flex-direction: column; gap: 16px; margin-top: 24px; }
+    .pain-card { padding: 24px 20px; }
+    .pain-card .pain-icon svg { width: 36px; height: 36px; }
+    .pain-card h3 { font-size: 18px; }
+    .pain-card p { font-size: 15px; }
+    .sec-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 24px; }
+    .sec-card { padding: 24px 16px; }
+    .sec-card .sec-icon svg { width: 32px; height: 32px; }
+    .sec-card h3 { font-size: 16px; }
+    .sec-card p { font-size: 13px; }
+    .stats-row { gap: 24px; margin-bottom: 32px; flex-wrap: wrap; justify-content: center; }
+    .stat-block .num { font-size: 48px; }
+    .stat-block .label { font-size: 16px; }
+    .platform-tags { flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 32px; }
+    .platform-tag { padding: 8px 20px; font-size: 16px; }
+    .phase-flow { gap: 6px; }
+    .phase-pill { padding: 6px 12px; font-size: 13px; }
+    .phase-arrow { font-size: 14px; }
+    .contact-line { font-size: 16px; }
+    .glow-purple { width: 250px; height: 250px; }
+    .glow-pink { width: 200px; height: 200px; }
+    html { scroll-snap-type: none; }
+    .slide { scroll-snap-align: none; scroll-snap-stop: normal; }
+    #nav-hint { display: none; }
+    #counter { bottom: 16px; right: 16px; font-size: 13px; padding: 6px 14px; }
+    .screenshot-wrap img { border-radius: 10px; }
+  }
+
+  /* ─── Mobile ─── */
+  @media (max-width: 480px) {
+    .slide { padding: 24px 16px; }
+    .headline { font-size: 26px; }
+    .subheadline { font-size: 17px; }
+    .bullets li { font-size: 15px; }
+    .bullets li .icon { width: 34px; height: 34px; }
+    .bullets li .icon svg { width: 16px; height: 16px; }
+    .title-logo { font-size: 36px; }
+    .title-subtitle { font-size: 17px; }
+    .sec-grid { grid-template-columns: 1fr; }
+    .stats-row { gap: 16px; }
+    .stat-block .num { font-size: 36px; }
+    .stat-block .label { font-size: 14px; }
+    .platform-tag { padding: 6px 16px; font-size: 14px; }
   }
 </style>
 </head>
