@@ -111,13 +111,17 @@
     width: 44px;
     height: 44px;
     border-radius: 12px;
-    background: var(--glass);
-    border: 1px solid rgba(124, 58, 237, 0.2);
+    background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(229,49,112,0.10));
+    border: 1px solid rgba(124, 58, 237, 0.25);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 22px;
     flex-shrink: 0;
+  }
+  .bullets li .icon svg {
+    width: 22px;
+    height: 22px;
   }
 
   /* ─── Screenshot ─── */
@@ -267,7 +271,13 @@
   .pain-card .pain-icon {
     font-size: 48px;
     margin-bottom: 24px;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pain-card .pain-icon svg {
+    width: 48px;
+    height: 48px;
   }
   .pain-card h3 {
     font-size: 22px;
@@ -304,7 +314,13 @@
   .sec-card .sec-icon {
     font-size: 44px;
     margin-bottom: 20px;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sec-card .sec-icon svg {
+    width: 44px;
+    height: 44px;
   }
   .sec-card h3 {
     font-size: 20px;
@@ -414,6 +430,23 @@
 </style>
 </head>
 <body>
+<!-- Shared SVG gradient definitions -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0">
+  <defs>
+    <linearGradient id="gPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="gPink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f472b6"/>
+      <stop offset="100%" stop-color="#e53170"/>
+    </linearGradient>
+    <linearGradient id="gMix" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#e53170"/>
+    </linearGradient>
+  </defs>
+</svg>
 
 <div id="progress"></div>
 <div id="counter">1 / 15</div>
@@ -447,17 +480,17 @@
     <div class="headline">Индустрия работает <span class="accent-pink">вручную</span></div>
     <div class="pain-grid">
       <div class="pain-card">
-        <span class="pain-icon">&#128451;</span>
+        <span class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPink)" stroke-width="1.5"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7M3 7l9-4 9 4M3 7l9 4 9-4"/><path d="M12 11v8" stroke-dasharray="2 2"/></svg></span>
         <h3>Разрозненные базы</h3>
         <p>Excel, Google Sheets, заметки в телефоне — данные теряются</p>
       </div>
       <div class="pain-card">
-        <span class="pain-icon">&#128172;</span>
+        <span class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPink)" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></span>
         <h3>Координация через мессенджеры</h3>
         <p>Сотни чатов, потерянные сообщения, путаница в статусах</p>
       </div>
       <div class="pain-card">
-        <span class="pain-icon">&#128683;</span>
+        <span class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPink)" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/><line x1="2" y1="2" x2="22" y2="22" stroke-width="2"/></svg></span>
         <h3>Нет прозрачности</h3>
         <p>Клиент не видит прогресс, агентства не знают статус приглашений</p>
       </div>
@@ -474,9 +507,9 @@
     <div class="content">
       <div class="headline">Единый вход <span class="accent-purple">для всех</span></div>
       <ul class="bullets">
-        <li><span class="icon">&#128241;</span>Telegram OTP — вход в одно касание</li>
-        <li><span class="icon">&#128231;</span>Email OTP — без паролей</li>
-        <li><span class="icon">&#128274;</span>7 ролей, каждый видит своё</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPurple)" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18" stroke-width="2" stroke-linecap="round"/></svg></span>Telegram OTP — вход в одно касание</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPurple)" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg></span>Email OTP — без паролей</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPurple)" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg></span>7 ролей, каждый видит своё</li>
       </ul>
     </div>
     <div class="visual">
@@ -496,9 +529,9 @@
     <div class="content">
       <div class="headline"><span class="accent-purple">3200+</span> моделей в единой базе</div>
       <ul class="bullets">
-        <li><span class="icon">&#127970;</span>14 агентств + фрилансеры</li>
-        <li><span class="icon">&#128203;</span>Полные параметры и фото-портфолио</li>
-        <li><span class="icon">&#128269;</span>Мгновенный поиск и фильтрация</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gMix)" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></span>14 агентств + фрилансеры</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gMix)" stroke-width="1.5"><rect x="4" y="2" width="16" height="20" rx="1"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg></span>Полные параметры и фото-портфолио</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gMix)" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke-width="2"/></svg></span>Мгновенный поиск и фильтрация</li>
       </ul>
     </div>
     <div class="visual">
@@ -518,9 +551,9 @@
     <div class="content">
       <div class="headline">Полный контроль <span class="accent-purple">в реальном времени</span></div>
       <ul class="bullets">
-        <li><span class="icon">&#128200;</span>Воронка заказов и метрики</li>
-        <li><span class="icon">&#9889;</span>Быстрые действия из дашборда</li>
-        <li><span class="icon">&#128065;</span>Мониторинг активности</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPurple)" stroke-width="1.5"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg></span>Воронка заказов и метрики</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPurple)" stroke-width="1.5"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg></span>Быстрые действия из дашборда</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPurple)" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span>Мониторинг активности</li>
       </ul>
     </div>
     <div class="visual">
@@ -553,8 +586,8 @@
         <span class="phase-pill">Показ</span>
       </div>
       <ul class="bullets" style="margin-top:32px">
-        <li><span class="icon">&#9203;</span>Дедлайны и таймауты на каждой фазе</li>
-        <li><span class="icon">&#128276;</span>Уведомления всем участникам</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPink)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></span>Дедлайны и таймауты на каждой фазе</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPink)" stroke-width="1.5"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></span>Уведомления всем участникам</li>
       </ul>
     </div>
     <div class="visual">
@@ -574,9 +607,9 @@
     <div class="content">
       <div class="headline">Экспертный <span class="accent-purple">подбор моделей</span></div>
       <ul class="bullets">
-        <li><span class="icon">&#128373;</span>Ревью новых моделей</li>
-        <li><span class="icon">&#11088;</span>Рекомендации по заказам</li>
-        <li><span class="icon">&#128172;</span>Платные консультации</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPurple)" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span>Ревью новых моделей</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPurple)" stroke-width="1.5"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="url(#gPurple)" opacity="0.15"/><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></span>Рекомендации по заказам</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPurple)" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><line x1="9" y1="10" x2="15" y2="10"/></svg></span>Платные консультации</li>
       </ul>
     </div>
     <div class="visual">
@@ -596,9 +629,9 @@
     <div class="content">
       <div class="headline">Управление моделями <span class="accent-pink">агентства</span></div>
       <ul class="bullets">
-        <li><span class="icon">&#128101;</span>Каталог моделей агентства</li>
-        <li><span class="icon">&#128196;</span>Приглашения и статусы</li>
-        <li><span class="icon">&#128221;</span>Заявки на добавление моделей</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPink)" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></span>Каталог моделей агентства</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPink)" stroke-width="1.5"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="12" y2="15"/></svg></span>Приглашения и статусы</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPink)" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg></span>Заявки на добавление моделей</li>
       </ul>
     </div>
     <div class="visual">
@@ -618,9 +651,9 @@
     <div class="content">
       <div class="headline">Простой и понятный <span class="accent-purple">кабинет</span></div>
       <ul class="bullets">
-        <li><span class="icon">&#128230;</span>Все заказы в одном месте</li>
-        <li><span class="icon">&#10084;</span>Избранные модели</li>
-        <li><span class="icon">&#128176;</span>Прозрачные расходы</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPurple)" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><polyline points="16,7 16,3 8,3 8,7"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg></span>Все заказы в одном месте</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPurple)" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" fill="url(#gPurple)" opacity="0.12"/><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></span>Избранные модели</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPurple)" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span>Прозрачные расходы</li>
       </ul>
     </div>
     <div class="visual">
@@ -640,9 +673,9 @@
     <div class="content">
       <div class="headline">Заказ <span class="accent-pink">глазами клиента</span></div>
       <ul class="bullets">
-        <li><span class="icon">&#9989;</span>Только подтвердившие модели</li>
-        <li><span class="icon">&#128200;</span>Прогресс по фазам в реальном времени</li>
-        <li><span class="icon">&#128100;</span>Анонимные композитки до подтверждения</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPink)" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg></span>Только подтвердившие модели</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPink)" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>Прогресс по фазам в реальном времени</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPink)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/><line x1="8" y1="7" x2="16" y2="7" stroke-dasharray="1.5 1.5"/></svg></span>Анонимные композитки до подтверждения</li>
       </ul>
     </div>
     <div class="visual">
@@ -662,9 +695,9 @@
     <div class="content">
       <div class="headline">Профиль <span class="accent-purple">модели</span></div>
       <ul class="bullets">
-        <li><span class="icon">&#128203;</span>Полные параметры и контакты</li>
-        <li><span class="icon">&#127912;</span>Композитка + портфолио</li>
-        <li><span class="icon">&#128221;</span>Заметки и история изменений</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPurple)" stroke-width="1.5"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></span>Полные параметры и контакты</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPurple)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></span>Композитка + портфолио</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPurple)" stroke-width="1.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></span>Заметки и история изменений</li>
       </ul>
     </div>
     <div class="visual">
@@ -684,9 +717,9 @@
     <div class="content">
       <div class="headline">Визитка <span class="accent-pink">модели</span></div>
       <ul class="bullets">
-        <li><span class="icon">&#128279;</span>Постоянная ссылка — как Яндекс.Диск</li>
-        <li><span class="icon">&#127912;</span>Три варианта: композитка, портфолио, всё</li>
-        <li><span class="icon">&#128228;</span>Удобно отправить клиенту или агентству</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPink)" stroke-width="1.5"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></span>Постоянная ссылка — как Яндекс.Диск</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPink)" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="2"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><circle cx="7" cy="7" r="1.5" fill="url(#gPink)" opacity="0.2"/><circle cx="17" cy="7" r="1.5" fill="url(#gPink)" opacity="0.2"/></svg></span>Три варианта: композитка, портфолио, всё</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPink)" stroke-width="1.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9"/></svg></span>Удобно отправить клиенту или агентству</li>
       </ul>
     </div>
     <div class="visual" style="gap:16px; justify-content:center;">
@@ -715,17 +748,17 @@
     <div class="headline">Данные для <span class="accent-pink">принятия решений</span></div>
     <div class="pain-grid" style="margin-top:32px">
       <div class="pain-card" style="border-color:rgba(124,58,237,0.15)">
-        <span class="pain-icon">&#128200;</span>
+        <span class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gMix)" stroke-width="1.5"><path d="M21.21 15.89A10 10 0 118 2.83"/><path d="M22 12A10 10 0 0012 2v10z"/></svg></span>
         <h3>Воронка заказов</h3>
         <p>Конверсия на каждом этапе от фильтрации до показа</p>
       </div>
       <div class="pain-card" style="border-color:rgba(124,58,237,0.15)">
-        <span class="pain-icon">&#127942;</span>
+        <span class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gMix)" stroke-width="1.5"><circle cx="12" cy="8" r="7"/><polyline points="8.21,13.89 7,23 12,20 17,23 15.79,13.88"/><polygon points="12,4 13.09,6.26 15.6,6.64 13.8,8.39 14.18,10.89 12,9.77 9.82,10.89 10.2,8.39 8.4,6.64 10.91,6.26" fill="url(#gMix)" opacity="0.15"/></svg></span>
         <h3>Рейтинг моделей</h3>
         <p>Топ по количеству показов, востребованность, надёжность</p>
       </div>
       <div class="pain-card" style="border-color:rgba(124,58,237,0.15)">
-        <span class="pain-icon">&#128178;</span>
+        <span class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gMix)" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/><line x1="14" y1="15" x2="18" y2="15"/></svg></span>
         <h3>Финансы</h3>
         <p>Доходы, комиссии, статистика оплат по периодам</p>
       </div>
@@ -743,22 +776,22 @@
     <div class="headline">Защита данных <span class="accent-purple">на каждом уровне</span></div>
     <div class="sec-grid">
       <div class="sec-card">
-        <span class="sec-icon">&#128220;</span>
+        <span class="sec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPurple)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="url(#gPurple)" opacity="0.1"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9,12 11,14 15,10"/></svg></span>
         <h3>ФЗ-152</h3>
         <p>Полное соответствие закону о персональных данных</p>
       </div>
       <div class="sec-card">
-        <span class="sec-icon">&#128737;</span>
+        <span class="sec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPurple)" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1.5" fill="url(#gPurple)" opacity="0.3"/><line x1="12" y1="17.5" x2="12" y2="19"/></svg></span>
         <h3>Anti-scraping</h3>
         <p>9 уровней защиты от копирования контента</p>
       </div>
       <div class="sec-card">
-        <span class="sec-icon">&#128209;</span>
+        <span class="sec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPurple)" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="14" y2="17"/><line x1="8" y1="9" x2="10" y2="9"/></svg></span>
         <h3>Аудит лог</h3>
         <p>Полная история всех действий в системе</p>
       </div>
       <div class="sec-card">
-        <span class="sec-icon">&#128279;</span>
+        <span class="sec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPurple)" stroke-width="1.5"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/><line x1="2" y1="2" x2="6" y2="6" stroke-dasharray="1 2" opacity="0.5"/><line x1="18" y1="18" x2="22" y2="22" stroke-dasharray="1 2" opacity="0.5"/></svg></span>
         <h3>Signed URLs</h3>
         <p>Временные ссылки на фото с автоистечением</p>
       </div>
@@ -792,9 +825,9 @@
       </div>
     </div>
     <div class="platform-tags">
-      <span class="platform-tag">&#127760; Веб</span>
-      <span class="platform-tag">&#128172; Telegram</span>
-      <span class="platform-tag">&#128241; Mobile</span>
+      <span class="platform-tag"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPurple)" stroke-width="1.5" style="width:18px;height:18px;vertical-align:middle;margin-right:6px;display:inline"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>Веб</span>
+      <span class="platform-tag"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPurple)" stroke-width="1.5" style="width:18px;height:18px;vertical-align:middle;margin-right:6px;display:inline"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>Telegram</span>
+      <span class="platform-tag"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gPurple)" stroke-width="1.5" style="width:18px;height:18px;vertical-align:middle;margin-right:6px;display:inline"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18" stroke-width="2" stroke-linecap="round"/></svg>Mobile</span>
     </div>
     <div class="title-logo" style="font-size:64px; margin-top:24px;">
       <span class="pre">BEPRO</span><span class="under">_</span><span class="duction">duction</span>
