@@ -1,0 +1,60 @@
+{
+  "base_dir": "C:\\Users\\Алексей\\Documents\\Project\\Модельный бот\\bepro\\presentation\\screenshots",
+  "roles": {
+    "superadmin": [
+      "agencies.png",
+      "analytics.png",
+      "audit.png",
+      "broadcasts.png",
+      "clients.png",
+      "dashboard.png",
+      "issues.png",
+      "model_detail.png",
+      "models.png",
+      "order_detail.png",
+      "orders.png",
+      "payments.png",
+      "review.png",
+      "settings.png",
+      "users.png"
+    ],
+    "admin": [
+      "agencies.png",
+      "analytics.png",
+      "clients.png",
+      "dashboard.png",
+      "model_detail.png",
+      "models.png",
+      "order_detail.png",
+      "orders.png",
+      "payments.png"
+    ],
+    "casting_director": [
+      "dashboard.png",
+      "model_detail.png",
+      "models.png",
+      "orders.png",
+      "review.png"
+    ],
+    "agent": [
+      "dashboard.png",
+      "invitations.png",
+      "models.png"
+    ],
+    "client": [
+      "dashboard.png",
+      "favorites.png",
+      "models.png",
+      "order_detail.png",
+      "orders.png"
+    ],
+    "model": [
+      "dashboard.png",
+      "invitations.png",
+      "settings.png"
+    ]
+  },
+  "common": [
+    "login.png"
+  ]
+}

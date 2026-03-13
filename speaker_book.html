@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BEPRO_duction — Книга спикера</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #16213e;
+    --bg-card: #1e2745;
+    --accent: #7c3aed;
+    --accent-light: #a78bfa;
+    --accent-dim: #4c1d95;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --border: #334155;
+    --bullet: #7c3aed;
+  }
+
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 28mm 22mm 24mm 22mm;
+    background: var(--bg-primary);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page + .page {
+    border-top: 1px solid var(--border);
+  }
+
+  /* --- Title Page --- */
+  .title-page {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .title-page .logo-mark {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, var(--accent), #9333ea);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 32px;
+    font-size: 36px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -1px;
+    box-shadow: 0 8px 32px rgba(124, 58, 237, 0.35);
+  }
+
+  .title-page h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #fff 0%, var(--accent-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .title-page .subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    max-width: 420px;
+    margin: 0 auto 48px;
+    line-height: 1.5;
+  }
+
+  .title-page .meta-line {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    margin-top: auto;
+  }
+
+  .title-page .badge {
+    display: inline-block;
+    background: var(--accent-dim);
+    color: var(--accent-light);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  /* --- Section Pages --- */
+  .section-number {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+
+  .section-title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    line-height: 1.25;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 12px;
+  }
+
+  .talking-points-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+  }
+
+  .talking-points {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 28px;
+  }
+
+  .talking-points li {
+    position: relative;
+    padding: 10px 0 10px 28px;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--text-primary);
+    border-bottom: 1px solid rgba(51, 65, 85, 0.4);
+  }
+
+  .talking-points li:last-child {
+    border-bottom: none;
+  }
+
+  .talking-points li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 17px;
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    background: var(--accent);
+  }
+
+  .talking-points li .note {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  .screenshot-container {
+    margin-top: auto;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--bg-secondary);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  .screenshot-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .screenshot-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 6px 0;
+    letter-spacing: 0.5px;
+  }
+
+  /* --- Page number --- */
+  .page-number {
+    position: absolute;
+    bottom: 14mm;
+    right: 22mm;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .page-number::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 2px;
+    background: var(--accent);
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  /* --- Special: contact block --- */
+  .contact-block {
+    margin-top: 32px;
+    padding: 20px 24px;
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    background: rgba(124, 58, 237, 0.08);
+    text-align: center;
+  }
+
+  .contact-block p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+  }
+
+  /* --- Summary stats row --- */
+  .stats-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .stat-card {
+    flex: 1;
+    min-width: 100px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 12px;
+    text-align: center;
+  }
+
+  .stat-card .stat-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--accent-light);
+  }
+
+  .stat-card .stat-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* --- Tech grid --- */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .tech-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+
+  .tech-item .tech-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  .tech-item .tech-value {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  /* --- Print --- */
+  @media print {
+    html { font-size: 12px; }
+
+    body {
+      background: var(--bg-primary);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      color-adjust: exact;
+    }
+
+    .page {
+      page-break-after: always;
+      page-break-inside: avoid;
+      margin: 0;
+      padding: 20mm 18mm 20mm 18mm;
+      min-height: 0;
+      height: 257mm; /* A4 minus margins */
+    }
+
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 20mm 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== PAGE 1: Title ==================== -->
+<div class="page title-page">
+  <div>
+    <div class="badge">Презентация платформы</div>
+    <div class="logo-mark">B</div>
+    <h1>BEPRO_duction</h1>
+    <p class="subtitle">Цифровая платформа для модельного бизнеса</p>
+    <p style="font-size: 1rem; color: var(--text-secondary); max-width: 460px; margin: 0 auto;">
+      Единая экосистема для агентств, кастинг-директоров и клиентов
+    </p>
+  </div>
+  <p class="meta-line">Книга спикера &mdash; конфиденциально</p>
+</div>
+
+<!-- ==================== PAGE 2: Problem ==================== -->
+<div class="page">
+  <div class="section-number">Раздел 02</div>
+  <h2 class="section-title">Проблема рынка</h2>
+  <p class="talking-points-label">Ключевые тезисы</p>
+  <ul class="talking-points">
+    <li>
+      Разрозненные базы моделей у разных агентств
+      <span class="note">Каждое агентство ведёт свою таблицу — данные не пересекаются, нет единого каталога</span>
+    </li>
+    <li>
+      Ручной подбор через мессенджеры и таблицы
+      <span class="note">WhatsApp, Telegram, Excel — хаотичная коммуникация, потеря информации</span>
+    </li>
+    <li>
+      Нет прозрачности процесса для клиента
+      <span class="note">Клиент не видит статус заказа, не может отслеживать подбор</span>
+    </li>
+    <li>
+      Потеря времени на координацию между участниками
+      <span class="note">Кастинг-директор, агент, модель, клиент — все общаются вручную</span>
+    </li>
+  </ul>
+  <div class="page-number">2</div>
+</div>
+
+<!-- ==================== PAGE 3: Solution ==================== -->
+<div class="page">
+  <div class="section-number">Раздел 03</div>
+  <h2 class="section-title">Решение: BEPRO_duction</h2>
+  <p class="talking-points-label">Ключевые тезисы</p>
+  <ul class="talking-points">
+    <li>
+      Единая платформа с 7 ролями пользователей
+      <span class="note">Суперадмин, админ, кастинг-директор, агент, клиент, модель, модель агентства</span>
+    </li>
+    <li>
+      Вход через Telegram OTP или Email &mdash; без паролей
+      <span class="note">Никаких паролей для запоминания — одноразовый код в Telegram или на почту</span>
+    </li>
+    <li>
+      Веб-приложение + Telegram-бот + мобильное приложение
+      <span class="note">Три точки входа — каждый пользователь работает в удобном ему формате</span>
+    </li>
+  </ul>
+  <div class="screenshot-container">
+    <img src="screenshots/_common/login.png" alt="Экран входа BEPRO_duction">
+  </div>
+  <p class="screenshot-label">Экран авторизации — вход через Telegram OTP</p>
+  <div class="page-number">3</div>
+</div>
+
+<!-- ==================== PAGE 4: Scale ==================== -->
+<div class="page">
+  <div class="section-number">Раздел 04</div>
+  <h2 class="section-title">Масштаб базы</h2>
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-value">3200+</div>
+      <div class="stat-label">Моделей</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">14</div>
+      <div class="stat-label">Агентств</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">80 000+</div>
+      <div class="stat-label">Фотографий</div>
+    </div>
+  </div>
+  <p class="talking-points-label">Ключевые тезисы</p>
+  <ul class="talking-points">
+    <li>Полные параметры: рост, замеры, размер обуви/одежды, тип внешности</li>
+    <li>Многоуровневая фильтрация + текстовый поиск</li>
+    <li>Фото-портфолио каждой модели (до 20 снимков)</li>
+  </ul>
+  <div class="screenshot-container">
+    <img src="screenshots/superadmin/models.png" alt="Каталог моделей">
+  </div>
+  <p class="screenshot-label">Каталог моделей с фильтрацией — интерфейс суперадмина</p>
+  <div class="page-number">4</div>
+</div>
+
+<!-- ==================== PAGE 5: Superadmin Dashboard ==================== -->
+<div class="page">
+  <div class="section-number">Раздел 05</div>
+  <h2 class="section-title">Панель суперадмина</h2>
+  <p class="talking-points-label">Ключевые тезисы</p>
+  <ul class="talking-points">
+    <li>
+      Воронка заказов: от фильтрации до оплаты
+      <span class="note">Визуальная воронка показывает конверсию на каждом этапе</span>
+    </li>
+    <li>
+      Быстрые действия: создание заказа, рассылки, аналитика
+      <span class="note">Всё критичное — в один клик с главного экрана</span>
+    </li>
+    <li>
+      Очередь ревью новых моделей
+      <span class="note">Новые модели проходят модерацию перед попаданием в каталог</span>
+    </li>
+    <li>Мониторинг в реальном времени</li>
+  </ul>
+  <div class="screenshot-container">
+    <img src="screenshots/superadmin/dashboard.png" alt="Дашборд суперадмина">
+  </div>
+  <p class="screenshot-label">Главная панель суперадмина</p>
+  <div class="page-number">5</div>
+</div>
+
+<!-- ==================== PAGE 6: 6-Phase Workflow ==================== -->
+<div class="page">
+  <div class="section-number">Раздел 06</div>
+  <h2 class="section-title">6-фазный workflow заказа</h2>
+  <p class="talking-points-label">Ключевые тезисы</p>
+  <ul class="talking-points">
+    <li>
+      Фильтрация &rarr; Отбор &rarr; Приглашение &rarr; Кастинг &rarr; Примерка &rarr; Показ
+      <span class="note">Каждая фаза имеет чёткие правила перехода и ответственных</span>
+    </li>
+    <li>
+      Прогресс X/N на каждом этапе
+      <span class="note">Видно сколько моделей прошло текущий этап из общего количества</span>
+    </li>
+    <li>
+      Каждый участник видит только свою часть процесса
+      <span class="note">Разграничение доступа — клиент не видит внутренние данные агентств</span>
+    </li>
+    <li>
+      Автоматические уведомления на каждом переходе
+      <span class="note">Telegram-бот оповещает моделей и агентов о новых действиях</span>
+    </li>
+  </ul>
+  <div class="screenshot-container">
+    <img src="screenshots/superadmin/order_detail.png" alt="Детали заказа">
+  </div>
+  <p class="screenshot-label">Детальная страница заказа — 6 фаз workflow</p>
+  <div class="page-number">6</div>
+</div>
+
+<!-- ==================== PAGE 7: Casting Director ==================== -->
+<div class="page">
+  <div class="section-number">Раздел 07</div>
+  <h2 class="section-title">Кастинг-директор</h2>
+  <p class="talking-points-label">Ключевые тезисы</p>
+  <ul class="talking-points">
+    <li>
+      Полный доступ к базе моделей
+      <span class="note">Видит все параметры, фото, историю участия</span>
+    </li>
+    <li>
+      Ревью и одобрение новых моделей
+      <span class="note">Статусы: новая, одобрена, на удержании, отклонена</span>
+    </li>
+    <li>
+      Экспертные консультации (платная услуга)
+      <span class="note">Клиент может запросить экспертизу КД — рекомендации по подбору</span>
+    </li>
+    <li>Рекомендации по подбору для заказа</li>
+  </ul>
+  <div class="screenshot-container">
+    <img src="screenshots/casting_director/models.png" alt="Каталог — кастинг-директор">
+  </div>
+  <p class="screenshot-label">Каталог моделей — интерфейс кастинг-директора</p>
+  <div class="page-number">7</div>
+</div>
+
+<!-- ==================== PAGE 8: Agency ==================== -->
+<div class="page">
+  <div class="section-number">Раздел 08</div>
+  <h2 class="section-title">Агентство</h2>
+  <p class="talking-points-label">Ключевые тезисы</p>
+  <ul class="talking-points">
+    <li>
+      Управление моделями своего агентства
+      <span class="note">Редактирование профилей, загрузка фото, обновление параметров</span>
+    </li>
+    <li>
+      Ответы на приглашения от имени моделей
+      <span class="note">Агент подтверждает или отклоняет участие за своих моделей</span>
+    </li>
+    <li>
+      Отслеживание статусов заказов
+      <span class="note">Видит только заказы, в которых участвуют модели агентства</span>
+    </li>
+    <li>
+      Заявки на добавление новых моделей
+      <span class="note">Агент отправляет ссылку — парсер извлекает данные — админ импортирует</span>
+    </li>
+  </ul>
+  <div class="screenshot-container">
+    <img src="screenshots/agent/dashboard.png" alt="Дашборд агентства">
+  </div>
+  <p class="screenshot-label">Панель агентства</p>
+  <div class="page-number">8</div>
+</div>
+
+<!-- ==================== PAGE 9: Client ==================== -->
+<div class="page">
+  <div class="section-number">Раздел 09</div>
+  <h2 class="section-title">Клиент</h2>
+  <p class="talking-points-label">Ключевые тезисы</p>
+  <ul class="talking-points">
+    <li>
+      Простой личный кабинет: заказы + избранные + расходы
+      <span class="note">Минимум сложности — клиент видит только то, что ему нужно</span>
+    </li>
+    <li>
+      Создание заказа с фильтрами (пол, рост, размеры)
+      <span class="note">Задаёт параметры — система предлагает подходящих моделей</span>
+    </li>
+    <li>
+      Просмотр и отбор моделей с анонимными композитками
+      <span class="note">До определённой фазы клиент не видит имена и агентства моделей</span>
+    </li>
+    <li>Прогресс заказа в реальном времени</li>
+  </ul>
+  <div class="screenshot-container">
+    <img src="screenshots/client/dashboard.png" alt="Дашборд клиента">
+  </div>
+  <p class="screenshot-label">Личный кабинет клиента</p>
+  <div class="page-number">9</div>
+</div>
+
+<!-- ==================== PAGE 10: Client Catalog ==================== -->
+<div class="page">
+  <div class="section-number">Раздел 10</div>
+  <h2 class="section-title">Каталог для клиента</h2>
+  <p class="talking-points-label">Ключевые тезисы</p>
+  <ul class="talking-points">
+    <li>
+      Клиент видит модели БЕЗ названий агентств
+      <span class="note">Защита базы — клиент не может выйти на агентство напрямую</span>
+    </li>
+    <li>
+      Фильтрация по параметрам
+      <span class="note">Пол, рост, размер одежды, обувь, тип внешности</span>
+    </li>
+    <li>
+      Добавление в избранное
+      <span class="note">Можно собрать свой шорт-лист для будущих заказов</span>
+    </li>
+    <li>
+      Анонимные композитки (без имён до определённой фазы)
+      <span class="note">Имена раскрываются только после подтверждения участия</span>
+    </li>
+  </ul>
+  <div class="screenshot-container">
+    <img src="screenshots/client/models.png" alt="Каталог клиента">
+  </div>
+  <p class="screenshot-label">Каталог моделей — клиентский интерфейс (анонимный)</p>
+  <div class="page-number">10</div>
+</div>
+
+<!-- ==================== PAGE 11: Model ==================== -->
+<div class="page">
+  <div class="section-number">Раздел 11</div>
+  <h2 class="section-title">Модель</h2>
+  <p class="talking-points-label">Ключевые тезисы</p>
+  <ul class="talking-points">
+    <li>
+      Личный кабинет с профилем и статистикой
+      <span class="note">Количество показов, кастингов, средний рейтинг</span>
+    </li>
+    <li>
+      Получение приглашений через Telegram-бот
+      <span class="note">Inline-кнопки: принять / отклонить / опоздаю — прямо в чате</span>
+    </li>
+    <li>
+      Управление доступностью
+      <span class="note">Модель может отметить себя недоступной на период</span>
+    </li>
+    <li>История участия в показах</li>
+  </ul>
+  <div class="screenshot-container">
+    <img src="screenshots/model/dashboard.png" alt="Кабинет модели">
+  </div>
+  <p class="screenshot-label">Личный кабинет модели</p>
+  <div class="page-number">11</div>
+</div>
+
+<!-- ==================== PAGE 12: Analytics ==================== -->
+<div class="page">
+  <div class="section-number">Раздел 12</div>
+  <h2 class="section-title">Аналитика</h2>
+  <p class="talking-points-label">Ключевые тезисы</p>
+  <ul class="talking-points">
+    <li>
+      Воронка конверсии заказов
+      <span class="note">От первичной фильтрации до завершённого показа — процент на каждом этапе</span>
+    </li>
+    <li>
+      Топ-модели по количеству показов
+      <span class="note">Рейтинг востребованности, частота участия, отзывы</span>
+    </li>
+    <li>
+      Статистика по агентствам
+      <span class="note">Активность, количество моделей, процент подтверждений</span>
+    </li>
+    <li>Финансовая аналитика</li>
+  </ul>
+  <div class="screenshot-container">
+    <img src="screenshots/superadmin/analytics.png" alt="Аналитика">
+  </div>
+  <p class="screenshot-label">Панель аналитики</p>
+  <div class="page-number">12</div>
+</div>
+
+<!-- ==================== PAGE 13: Security ==================== -->
+<div class="page">
+  <div class="section-number">Раздел 13</div>
+  <h2 class="section-title">Безопасность и приватность</h2>
+  <p class="talking-points-label">Ключевые тезисы</p>
+  <ul class="talking-points">
+    <li>
+      Соответствие ФЗ-152 (персональные данные)
+      <span class="note">Согласие на обработку, экспорт данных, право на удаление (30 дней)</span>
+    </li>
+    <li>
+      JWT аутентификация + CSRF защита
+      <span class="note">Токен в httpOnly cookie — не доступен из JavaScript</span>
+    </li>
+    <li>
+      Защита от парсинга базы (anti-scraping, watermarks)
+      <span class="note">9 уровней защиты: rate limit, CAPTCHA, fingerprinting, водяные знаки</span>
+    </li>
+    <li>
+      Подписанные URL для фото с TTL
+      <span class="note">Ссылка на фото действует 15 минут, потом истекает</span>
+    </li>
+    <li>
+      Аудит лог всех действий
+      <span class="note">Кто, когда, что сделал — полная трассировка</span>
+    </li>
+  </ul>
+  <div class="page-number">13</div>
+</div>
+
+<!-- ==================== PAGE 14: Tech ==================== -->
+<div class="page">
+  <div class="section-number">Раздел 14</div>
+  <h2 class="section-title">Технологии</h2>
+  <p class="talking-points-label">Технологический стек</p>
+  <div class="tech-grid">
+    <div class="tech-item">
+      <div class="tech-label">Backend</div>
+      <div class="tech-value">FastAPI (Python)</div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-label">База данных</div>
+      <div class="tech-value">PostgreSQL 17</div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-label">Кеширование</div>
+      <div class="tech-value">Redis 7</div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-label">Frontend</div>
+      <div class="tech-value">HTMX + Alpine.js + Tailwind CSS</div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-label">Бот</div>
+      <div class="tech-value">Telegram Bot (webhook)</div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-label">Хранилище фото</div>
+      <div class="tech-value">Cloudflare R2 (S3-совместимое)</div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-label">Контейнеризация</div>
+      <div class="tech-value">Docker Compose</div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-label">Мобильное приложение</div>
+      <div class="tech-value">React Native 0.78</div>
+    </div>
+  </div>
+  <p class="talking-points-label">Ключевые тезисы</p>
+  <ul class="talking-points">
+    <li>Современный асинхронный стек — высокая производительность</li>
+    <li>Три клиента: веб, Telegram-бот, мобильное приложение</li>
+    <li>Docker-контейнеризация — простой деплой и масштабирование</li>
+    <li>S3-совместимое хранилище — отказоустойчивость и CDN</li>
+  </ul>
+  <div class="page-number">14</div>
+</div>
+
+<!-- ==================== PAGE 15: Summary ==================== -->
+<div class="page">
+  <div class="section-number">Раздел 15</div>
+  <h2 class="section-title">Итого</h2>
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-value">3200+</div>
+      <div class="stat-label">Моделей</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">14</div>
+      <div class="stat-label">Агентств</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">6</div>
+      <div class="stat-label">Фаз заказа</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">7</div>
+      <div class="stat-label">Ролей</div>
+    </div>
+  </div>
+  <p class="talking-points-label">Ключевые тезисы</p>
+  <ul class="talking-points">
+    <li>3200+ моделей из 14 агентств в единой базе</li>
+    <li>6-фазный workflow от заявки до оплаты</li>
+    <li>7 ролей с разграничением доступа</li>
+    <li>Веб + Telegram + Мобильное приложение</li>
+    <li>Полное соответствие ФЗ-152</li>
+  </ul>
+  <div class="contact-block">
+    <p style="font-weight: 600; font-size: 1.1rem; color: var(--text-primary); margin-bottom: 8px;">Контактная информация</p>
+    <p>[placeholder]</p>
+  </div>
+  <div class="page-number">15</div>
+</div>
+
+</body>
+</html>
